@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.env
+venv/
+.env
+
+# VSCode
+.vscode/
+
+# PyInstaller
+build/
+dist/
+*.spec
+
+# MacOS
+.DS_Store
+
+# CSV/JSON/ICS gerados
+*.csv
+*.json
+*.ics
+
+# Testes
+htmlcov/
+.coverage
+
+# Outros
+*.log
