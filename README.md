@@ -1,102 +1,50 @@
+# Class2Cal 📅
 
-# Class2Cal
+> **Gerador de Horários Universitários (CEFET/MG)**
 
+O **Class2Cal** agora é uma **Aplicação Web Moderna** que roda diretop no seu navegador!
 
-Automatize a criação de arquivos iCalendar (.ics) com horários acadêmicos a partir de CSV ou JSON, compatível com Apple Calendar, Google Calendar e outros.
+🚀 **[Acesse o Site Agora](https://bernardovieirarocha.github.io/Class2Cal/)**
 
-## Instalação
+Transforme códigos de horário (ex: `24M12`) em arquivos de calendário `.ics` compatíveis com Google Calendar, Apple Calendar, Outlook e Notion.
 
-Requer Python 3.10+.
+## ✨ Funcionalidades
 
-```bash
-python3 -m pip install python-dateutil  # opcional, se quiser usar dateutil
-```
+- **100% Web & Gratuito**: Não precisa instalar nada.
+- **Funciona Offline**: Processamento feito direto no seu navegador.
+- **Privacidade Total**: Seus dados nunca saem do seu computador.
+- **Design Moderno**: Interface limpa e responsiva.
+- **Importação Fácil**: Suporte a arquivos CSV e JSON.
 
-## Uso
+## 🛠️ Como Usar
 
+1. Acesse o **[Site do Class2Cal](https://bernardovieirarocha.github.io/Class2Cal/)**.
+2. Preencha os dados do semestre (Início/Fim).
+3. Adicione suas disciplinas:
+   - Digite o código do horário (ex: `24M12`, `6N12`).
+   - Adicione nome, professor e sala (opcional).
+4. Clique em **"Gerar Calendário (.ics)"**.
+5. Importe o arquivo gerado no seu aplicativo de agenda favorito!
 
-### Interface gráfica para criar CSV/JSON intuitivamente
+## 💻 Rodando Localmente
 
-Execute o seguinte comando para abrir a interface gráfica:
+Se você é desenvolvedor e quer alterar o código:
 
-```bash
-python3 class2cal/app.py
-```
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/bernardovieirarocha/Class2Cal.git
+   ```
+2. Abra o arquivo principal no navegador:
+   ```bash
+   open docs/index.html
+   ```
+   *(Ou apenas dê dois cliques no arquivo `docs/index.html`)*
 
-Na janela, preencha os campos das disciplinas e clique em "Adicionar disciplina". Você pode salvar todas as disciplinas em um arquivo CSV ou JSON usando os botões correspondentes. No caso do JSON, será solicitado preencher os dados do semestre.
+## 📂 Estrutura do Projeto
 
-Use o arquivo gerado normalmente com a CLI para criar o .ics.
+- `docs/`: Arquivos da aplicação web (HTML/JS/CSS). É a versão que vai para o GitHub Pages.
+- `web/static/`: Código fonte original do frontend.
+- `cefet2ics/`: Código legado em Python (mantido para referência).
 
-
-
-### Gerar templates de exemplo
-```bash
-python3 -m class2cal --write-templates
-```
-Cria `courses_template.csv` e `courses_template.json`.
-
-### Gerar .ics a partir de CSV
-```bash
-python3 -m class2cal --csv cursos.csv --start 2025-08-04 --end 2025-12-10 --cal-name "Semestre 2025-2" --out materias.ics
-```
-
-### Gerar .ics a partir de JSON
-```bash
-python3 -m class2cal --json cursos.json
-```
-
-### Excluir datas específicas (feriados, greves)
-```bash
-python3 -m class2cal --csv cursos.csv --exdates 2025-09-07,2025-10-12
-```
-
-## Formato dos dados
-
-### CSV
-```
-alias,full_name,professor,room,schedule_codes
-EDO,Equações Diferenciais Ordinárias,Prof. Silva,Sala 101,24M56
-CFVV2,Cálculo Vetorial e Variável Complexa,Prof. Souza,Sala 202,3T12
-AEDs3,Algoritmos e Estruturas de Dados III,Prof. Lima,Sala 303,56N12
-```
-
-### JSON
-```json
-{
-  "semester": {
-    "start_date": "2025-08-04",
-    "end_date": "2025-12-10",
-    "calendar_name": "CEFET 2025-2"
-  },
-  "courses": [
-    {"alias": "EDO", "full_name": "Equações Diferenciais Ordinárias", "professor": "Prof. Silva", "room": "Sala 101", "schedule_codes": "24M56"},
-    {"alias": "CFVV2", "full_name": "Cálculo Vetorial e Variável Complexa", "professor": "Prof. Souza", "room": "Sala 202", "schedule_codes": "3T12"},
-    {"alias": "AEDs3", "full_name": "Algoritmos e Estruturas de Dados III", "professor": "Prof. Lima", "room": "Sala 303", "schedule_codes": "56N12"}
-  ]
-}
-```
-
-## Testes
-
-```bash
-python3 -m unittest discover cefet2ics/tests
-```
-
-
-## Arquitetura
-- `__main__.py`: CLI
-- `parser.py`: parsing CSV/JSON
-- `cefet_code.py`: parsing dos códigos de horários
-- `timetable.py`: cálculo de datas/horários
-- `ics_writer.py`: geração do .ics
-- `templates.py`: templates de exemplo
-- `app.py`: interface gráfica completa
-- `tests/`: testes unitários
-
-
-## Critérios de aceite
-- Gera .ics compatível com Apple Calendar, Google Calendar e Outlook.
-- Alias no título, nome completo/professor/sala nas notas.
-- Múltiplos códigos por disciplina funcionam.
-- Validações amigáveis, sem abortar toda execução.
-- Arquivo .ics abre sem warnings nos principais calendários.
+---
+Desenvolvido por Bernardo Vieira Rocha.
